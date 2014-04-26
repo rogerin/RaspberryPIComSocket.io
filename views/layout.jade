@@ -1,0 +1,18 @@
+doctype html
+html
+	head
+		title Raspberry PI Realtime com Socket.io
+		meta(name="viewport", content="width=device-width, initial-scale=1.0")
+		link(rel='stylesheet', href='/bootstrap/css/bootstrap.min.css')
+		link(rel='stylesheet', href='/stylesheets/style.css')
+	body
+		div(class="container")
+			h2 Automação com RaspberryPI+Socket.io
+			block content
+		div(class="container")
+			include layout/footer
+		script(type='text/javascript', src='/javascripts/jquery.js')
+		script(type='text/javascript', src='/bootstrap/js/bootstrap.min.js')
+		script(type='text/javascript', src="/socket.io/socket.io.js")
+		script(type='text/javascript', src='/javascripts/app.js')
+		block javascript

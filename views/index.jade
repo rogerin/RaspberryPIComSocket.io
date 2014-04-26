@@ -1,0 +1,53 @@
+extends layout
+
+block content
+	div(class="row")
+		div(class="col-lg-4")
+			div(class="panel panel-default")
+				div(class="panel-heading") Botões
+				div(class="panel-body")
+					p Luz 1
+						div(class="btn-group")
+							button(type="button",class="btn btn-success ligaluz", rel="7") On
+							button(type="button",class="btn btn-danger desligaluz", rel="7") Off
+					p Luz 2
+						div(class="btn-group")
+							button(type="button",class="btn btn-success ligaluz", rel="11") On
+							button(type="button",class="btn btn-danger desligaluz", rel="11") Off
+					p Luz 3
+						div(class="btn-group")
+							button(type="button",class="btn btn-success ligaluz", rel="12") On
+							button(type="button",class="btn btn-danger desligaluz", rel="12") Off
+					p Luz 4
+						div(class="btn-group")
+							button(type="button",class="btn btn-success ligaluz", rel="13") On
+							button(type="button",class="btn btn-danger desligaluz", rel="13") Off
+					p Luz 5
+						div(class="btn-group")
+							button(type="button",class="btn btn-success ligaluz", rel="15") On
+							button(type="button",class="btn btn-danger desligaluz", rel="15") Off
+					p Luz 6
+						div(class="btn-group")
+							button(type="button",class="btn btn-success ligaluz", rel="16") On
+							button(type="button",class="btn btn-danger desligaluz", rel="16") Off
+					p Luz 7
+						div(class="btn-group")
+							button(type="button",class="btn btn-success ligaluz", rel="18") On
+							button(type="button",class="btn btn-danger desligaluz", rel="18") Off
+					p Luz 8
+						div(class="btn-group")
+							button(type="button",class="btn btn-success ligaluz", rel="22") On
+							button(type="button",class="btn btn-danger desligaluz", rel="22") Off					
+
+		div(class="col-lg-8", id="painel") 
+			div(class="panel panel-default")
+				div(class="panel-heading") Log total de <span id="users"></span> usuários
+				table(class="table table-striped")
+					thead
+						tr
+							th evento
+							th user
+							th Log
+					tbody(id="log")
+						
+
