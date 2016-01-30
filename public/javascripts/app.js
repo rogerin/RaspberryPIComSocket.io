@@ -1,7 +1,7 @@
 $(function(){
 	'use strict';
 
-	var socket = io.connect('http://192.168.1.101');
+	var socket = io.connect();
 	//var socket = io.connect('http://localhost');
 	
 	socket.on('returnStatus', function (data) {

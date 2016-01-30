@@ -1,12 +1,14 @@
-var express = require('express');
+(function startServer(){
+
+	var express = require('express');
 var load = require('express-load');
 var http = require('http');
-var gpio = require("pi-gpio");
+//var gpio = require("pi-gpio");
 
 var app = express();
 var port = Number(process.env.PORT || 5000);
 //alterado
-var server = app.listen(port, function(){
+var server = app.listen(3000, function(){
   console.log('Iniciando na porta: ' + port +' ');
 });
 var io = require('socket.io').listen(server);
@@ -45,10 +47,19 @@ function lerPin(pin) {
 
 
 io.sockets.on('connection', function (socket) {
-	//console.log(socket.handshaken);
 
-  	++conexoes;
+	 var i = 0;
+	  setInterval(function() {
+	    socket.emit('news', {
+	      message: i++
+	    });
+	  }, 1000);
+
+	//console.log(socket.handshaken);
+	++conexoes;
   	++eventos;
+  	console.log("Conexoes: " + conexoes);
+  	
 	io.sockets.emit('returnStatus', { 
 										evento: eventos, 
 										user: {
@@ -94,14 +105,20 @@ io.sockets.on('connection', function (socket) {
 
 	socket.on('disconnect', function () {
 		--conexoes;
-		++eventos;
-		io.sockets.emit('returnStatus', { 
+		console.log("Caiu: " + conexoes);
+		//++eventos;
+		/*io.sockets.emit('returnStatus', { 
 											evento: eventos, 
 											user: {
 												id: socket.id,
 												total: conexoes
 											}, 
 											log: 'total de ' + conexoes +' usuarios conectados' 
-										});
+										});*/
 	});
+
+
 });
+
+
+})();
